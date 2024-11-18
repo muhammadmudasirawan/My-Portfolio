@@ -1,38 +1,17 @@
-import { IntegrationIndex } from "./node_modules/@sentry/core/build/types-ts3.8/integration.d";
-// This file configures the initialization of Sentry on the client.
-// The config you add here will be used whenever a users loads a page in their browser.
-// https://docs.sentry.io/platforms/javascript/guides/nextjs/
-
-import * as Sentry from "@sentry/nextjs";
-
-// Sentry.init({
-//   dsn: "https://3db1c5f4f9d514e8c52755d8542a9d53@o4508247247224832.ingest.us.sentry.io/4508247250501632",
+import { Replay } from "@sentry/react";
+import * as Sentry from "@sentry/nextjs"; // Import from @sentry/nextjs
 
 Sentry.init({
-  dsn: "https://3db1c5f4f9d514e8c52755d8542a9d53@o4508247247224832.ingest.us.sentry.io/4508247250501632",
-  // Add optional integrations for additional features
+  dsn: "https://3db1c5f4f9d514e8c52755d8542a9d53@o4508247247224832.ingest.us.sentry.io/4508247250501632", // Replace with your actual DSN
   integrations: [
-    Sentry.replayIntegration({
+    new Sentry.Replay({
+      // `Replay` integration from `@sentry/nextjs`
       maskAllText: true,
       blockAllMedia: true,
     }),
-    Sentry.feedbackIntegration({
-      // Additional SDK configuration goes in here, for example:
-      colorScheme: "dark",
-    }),
   ],
-  // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
-  tracesSampleRate: 1,
-
-  // Define how likely Replay events are sampled.
-  // This sets the sample rate to be 10%. You may want this to be 100% while
-  // in development and sample at a lower rate in production
-  replaysSessionSampleRate: 0.1,
-
-  //
-  // Define how likely Replay events are sampled when an error occurs.
-  replaysOnErrorSampleRate: 1.0,
-
-  // Setting this option to true will print useful information to the console while you're setting up Sentry.
-  debug: false,
+  tracesSampleRate: 1.0, // Adjust this based on your needs
+  replaysSessionSampleRate: 0.1, // Adjust sample rate for replays
+  replaysOnErrorSampleRate: 1.0, // Full replay on error
+  debug: true, // Temporarily set to true to help with debugging
 });
