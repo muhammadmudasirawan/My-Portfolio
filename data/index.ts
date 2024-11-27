@@ -182,21 +182,21 @@ export const workExperience = [
   },
   {
     id: 2,
-    title: "Mobile App Dev - JSM Tech",
+    title: "Freelance App Dev Project",
     desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp2.svg",
   },
   {
     id: 3,
-    title: "Freelance App Dev Project",
+    title: "Lead Frontend Developer",
     desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp3.svg",
   },
   {
     id: 4,
-    title: "Lead Frontend Developer",
+    title: "Digital Marketing ",
     des: "A dynamic travel app showcasing a variety of destinations, with interactive GSAP animations and Three.js 3D effects for an immersive experience.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
